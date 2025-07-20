@@ -4,7 +4,7 @@ import { useGetMeQuery } from '../store/query/authApi'
 import { toast } from 'react-toastify'
 
 const ProtectedRoute = () => {
-    const { data: user, isLoading, isError } = useGetMeQuery(null)
+    const { data: user, isLoading, isError } = useGetMeQuery()
     const navigate = useNavigate()
 
     useEffect(() => {
