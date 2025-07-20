@@ -37,7 +37,7 @@ async function bootstrap(): Promise<void> {
   );
 
   app.enableCors({
-    origin: 'http://localhost:5173', // URL вашего фронтенда
+    origin: 'http://localhost:5173',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],

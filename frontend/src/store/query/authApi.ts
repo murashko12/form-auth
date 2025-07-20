@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import type { MyData } from '../types/auth'
 
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:4000',
+        baseUrl: import.meta.env.VITE_BASE_URL,
         credentials: 'include',
         prepareHeaders: (headers) => {
-            headers.set('Content-Type', 'application/json');
+            headers.set('Content-Type', 'application/json')
             return headers
         }
     }),
@@ -21,7 +22,7 @@ export const authApi = createApi({
                 }
             })
         }),
-        getMe: builder.query({
+        getMe: builder.query<MyData, void>({
             query: () => '/api/v1/auth/me'
         }),
         logout: builder.mutation({
@@ -33,4 +34,8 @@ export const authApi = createApi({
     })
 })
 
-export const { useLoginMutation, useGetMeQuery, useLogoutMutation } = authApi
+export const { 
+    useLoginMutation, 
+    useGetMeQuery, 
+    useLogoutMutation 
+} = authApi
