@@ -16,7 +16,7 @@ const Header = () => {
 
     return (
         <thead>
-            <tr>{_render}</tr>
+            <tr className="bg-[#1d232a]">{_render}</tr>
         </thead>
     )
 }

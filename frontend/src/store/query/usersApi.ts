@@ -53,7 +53,7 @@ export const usersApi = createApi({
                 url: `/users/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: (result, error, id) => [{ type: 'User', id }]
+            invalidatesTags: ['User']
         })
     })
 })
