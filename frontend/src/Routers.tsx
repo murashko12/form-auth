@@ -26,7 +26,7 @@ const Routers = () => {
                         <Route path="/" element={<LazyAdminPage />} />
                         <Route path="/user/:id" element={<LazyAdminUserPage />} />
                         <Route path="/user/create" element={<LazyAdminUserCreatePage />} />
-                        <Route path="/user/update" element={<LazyAdminUserUpdatePage />} />
+                        <Route path="/user/:id/update" element={<LazyAdminUserUpdatePage />} />
                     </Route>
                 </Route>
             </Routes>
