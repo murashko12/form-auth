@@ -16,7 +16,7 @@ const Sidebar = () => {
     const [open, setOpen] = useState<boolean>(false)
 
     const projectLinks = useMemo(() => [
-        { id: 1, icon: <LuUserPlus className="text-white text-2xl " />, label: "Добавить пользователя", path: "" }
+        { id: 1, icon: <LuUserPlus className="text-white text-2xl " />, label: "Добавить пользователя", path: "/user/create" }
     ], [])
 
     
@@ -26,9 +26,9 @@ const Sidebar = () => {
             <Link className={`w-full h-[42px] flex gap-3 flex-shrink-0 items-center justify-center  hover:bg-[#4A516D]`} to={`${path}`}>
                 {icon}
                 {openSidebar && (
-                <p className="opacity-0 animate-[fadeIn_0.3s_ease-in-out_0.1s_forwards] text-white">
-                    {label}
-                </p>
+                    <p className="opacity-0 animate-[fadeIn_0.3s_ease-in-out_0.1s_forwards] text-white">
+                        {label}
+                    </p>
                 )}
             </Link>
         )
@@ -80,11 +80,11 @@ const Sidebar = () => {
                         <div className="flex flex-col items-center gap-3"> 
                             {projectLinks.map((item) => (
                                 <SidebarLinkItem 
-                                key={item.id}
-                                icon={item.icon} 
-                                label={item.label} 
-                                path={item.path} 
-                                openSidebar={open} 
+                                    key={item.id}
+                                    icon={item.icon} 
+                                    label={item.label} 
+                                    path={item.path} 
+                                    openSidebar={open} 
                                 />
                             ))}
                         </div>

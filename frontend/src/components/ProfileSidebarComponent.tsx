@@ -38,8 +38,8 @@ const ProfileSidebarComponent = ({openSidebar}: TProps) => {
             {openSidebar && (
                 <div className="opacity-0 animate-[fadeIn_0.3s_ease-in-out_0.1s_forwards] text-white flex justify-between items-center w-full">
                     <span>
-                        <p className="">Мурашко П.</p>
-                        <p className="text-xs">petr@ocumare.ru</p>
+                        <p className="">Admin</p>
+                        <p className="text-xs">admin@inno.tech</p>
                     </span>
                     <button 
                         onClick={handleLogout}

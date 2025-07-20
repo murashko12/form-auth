@@ -26,7 +26,7 @@ const AdminUserPage = () => {
     }
 
     const handleEdit = () => {
-        navigate(`/admin/users/edit/${id}`)
+        navigate(`/user/${id}/update`)
     }
 
     if (isLoading) return <Loader />
