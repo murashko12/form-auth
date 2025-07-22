@@ -15,14 +15,19 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    if (!email || !password) {
+        toast.error('Заполните все поля')
+        return
+    }
     try {
-      const response = await login({ email, password }).unwrap()
-      if (response) {
-        toast.success('Успешный вход')
-        navigate('/')
-      }
-    } catch {
-      toast.error('Неверные учетные данные')
+        const response = await login({ email, password }).unwrap()
+        if (response) {
+            toast.success('Успешный вход')
+            navigate('/')
+        }
+    } catch (err) {
+        toast.error('Неверные учетные данные')
+        console.error('Ошибка входа:', err)
     }
   }
 

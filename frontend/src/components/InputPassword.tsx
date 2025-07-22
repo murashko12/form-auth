@@ -1,4 +1,4 @@
-import { useState, type InputHTMLAttributes } from 'react'
+import { useState, type InputHTMLAttributes, type MouseEvent } from 'react'
 import { IoKeyOutline } from 'react-icons/io5'
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa"
 
@@ -10,7 +10,11 @@ const InputPassword = ({ inputSearchStyles, ...attr }: IProps) => {
 
     const [passwordType, setPasswordType] = useState<boolean>(true)
 
-    const handleChangeType = () => setPasswordType(!passwordType)
+    const handleChangeType = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setPasswordType(!passwordType)
+    }
 
     return (
         <div className={`flex flex-col relative ${inputSearchStyles}`}>        
@@ -26,8 +30,9 @@ const InputPassword = ({ inputSearchStyles, ...attr }: IProps) => {
                 `}
                 autoComplete="new-password"
             />
-            <button 
+            <button
                 onClick={handleChangeType}
+                type="button"
                 className="absolute flex items-center justify-center right-2 top-1/2 transform -translate-y-1/2 text-xl text-[#F1F2FF] hover:bg-[#4A516D] w-7 h-7 rounded cursor-pointer"
             >{passwordType ? <FaRegEyeSlash /> : <FaRegEye />}</button>
         </div>
