@@ -8,7 +8,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const InputPassword = ({ inputSearchStyles, ...attr }: IProps) => {
 
-    const [passwordType, setPasswordType] = useState<boolean>()
+    const [passwordType, setPasswordType] = useState<boolean>(true)
 
     const handleChangeType = () => setPasswordType(!passwordType)
 
@@ -17,7 +17,7 @@ const InputPassword = ({ inputSearchStyles, ...attr }: IProps) => {
             <IoKeyOutline className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-[#F1F2FF]" />
             <input 
                 {...attr} 
-                // type={passwordType ? "password" : "text"}
+                type={passwordType ? "password" : "text"}
                 className={`
                     pl-10
                     border border-[#4A516D] px-6 py-[10px] rounded-xl
