@@ -1,8 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useGetUserByIdQuery, useDeleteUserMutation } from "../store/query/usersApi"
-import { FaEdit, FaTrash, FaCheck, FaTimes, FaPhone, FaEnvelope, FaUser, FaCalendarAlt, FaBriefcase } from "react-icons/fa"
-import Loader from "../components/Loader"
+import { FaCheck, FaTimes, FaPhone, FaEnvelope, FaUser, FaCalendarAlt, FaBriefcase } from "react-icons/fa"
+import Loader from "../components/UI/Loader"
 import { useDateFormatter } from "../hooks/useDateFormatter"
+import ButtonEdit from "../components/UI/ButtonEdit"
+import ButtonDelete from "../components/UI/ButtonDelete"
 
 const AdminUserPage = () => {
     
@@ -39,18 +41,8 @@ const AdminUserPage = () => {
                 <div className="flex justify-between items-start mb-6">
                     <h1 className="text-2xl font-bold">{user.fullName}</h1>
                     <div className="flex gap-3">
-                        <button 
-                            onClick={handleEdit}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
-                        >
-                            <FaEdit /> Редактировать
-                        </button>
-                        <button 
-                            onClick={handleDelete}
-                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
-                        >
-                            <FaTrash /> Удалить
-                        </button>
+                        <ButtonEdit handleEdit={handleEdit} />
+                        <ButtonDelete handleDelete={handleDelete} />
                     </div>
                 </div>
 
